@@ -1,0 +1,22 @@
+<html>
+<header>
+  <title>{{ title }}</title>
+  <meta http-equiv="refresh" content="{{ refresh_time|default(1) }}" />
+  <style>
+    p {
+      font-family: "{{ font }}";
+      font-size: {{ font_size }};
+      color: {{ text_color }};
+      -webkit-text-stroke-color: {{ outline_color }};
+      text-stroke-color: {{ outline_color }};
+      -webkit-text-stroke-width: {{ outline_width }};
+      text-stroke-width: {{ outline_width }};
+    }
+  </style>
+</header>
+
+<body>
+  <p>{{ content }}</p>
+</body>
+
+</html>

@@ -1,0 +1,92 @@
+<html>
+<header>
+    <title>{{ title }}</title>
+</header>
+
+<body>
+    <h1>{{ title }} - Info</h1>
+    <h2>Custom formatted Playback Timestamp</h2>
+    <p>
+        To get a preformatted string with your chosen format, call the
+        <code>/session/{username}</code> endpoint. Optionally, add these
+        query parameters:
+    </p>
+    <ul>
+        <li>
+            <code>format</code>: A string into which the timestamps should
+            be inserted into. Some special characters might need to be
+            URL-encoded. These tokens can be used and will be replaced:
+            <ul>
+                <li>
+                    <code>%p</code>: <code>play_state</code> will indicate
+                    whether the player is paused, either '▶' or '⏸'.
+                </li>
+                <li>
+                    <code>%c</code>: <code>current</code> is the timestamp
+                    of where the progress currently is.
+                </li>
+                <li>
+                    <code>%t</code>: <code>total</code> is the total length
+                    of the currently playing media.
+                </li>
+                <li>
+                    <code>%r</code>: <code>remaining</code> is the
+                    remaining play time.
+                </li>
+                <li>
+                    <code>%s</code>: A non-breakable space. Usable instead
+                    of the URL-encoded <code>%20</code> which cannot be
+                    doubled up.
+                </li>
+            </ul>
+            The default format is <code>%p%s%s%c%s/%s%t%s%s-%r</code> and
+            results in something like this:<br />
+            <code>▶  00:04 / 43:12  -43:08</code>
+        </li>
+        <li>
+            <code>font</code>: Choose any font installed on your system.
+        </li>
+        <li>
+            <code>font_size</code>: CSS compatible size, e.g.
+            <code>20px</code>, defaults to a font size of 40 pixels.
+        </li>
+        <li>
+            <code>text_color</code>: CSS compatible size, e.g.
+            <code>#0000FF</code>, defaults to black.
+        </li>
+        <li>
+            <code>outline_color</code>: CSS compatible size, e.g.
+            <code>#00FF00</code>, defaults to white.
+        </li>
+        <li>
+            <code>outline_width</code>: CSS compatible size, e.g.
+            <code>20px</code>, defaults to 0 pixels/being hidden.
+        </li>
+    </ul>
+    <p>
+        If you're using this within OBS, remove any custom CSS in the
+        browser source to prevent flickering of the text and use the
+        styling parameters.
+    </p>
+    <p>
+        An example call with all options in use could be:
+    </p>
+    <code>
+        /session/hase?font=monospace&font_size=20px&text_color=white&outline_color=black&outline_width=2px&force_hour=true&format=%p%s%c
+    </code>
+    <br />
+    <code>
+        ▶ 0:44:34
+    </code>
+    <h2>API for your own purposes</h2>
+    <p>
+        If you want to use the parsed timestamps in another application,
+        call the <code>/api/session/{username}</code> endpoint to get a
+        JSON-formatted response:
+    </p>
+    <code>
+        {"play_state":"▶","current":"00:04","total":"43:12","remaining":"43:08"}
+    </code>
+</body>
+
+</html>
