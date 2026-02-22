@@ -6,7 +6,7 @@ Originally intended for live streamer's watchalongs, might be useful to others a
 
 Build and start the container with your API key and server address in the environment variables, and access the HTTP endpoint with your browser. A full info page with options and styling parameters will guide you. Build the parameters as you like and matches your setup, then copy the full link into OBS as a browser source. Make sure to remove any custom CSS to prevent flickering.
 
-> More refined setup instrctions will be provided at a later date.
+You can deploy the code yourself or use the provided container image `ghcr.io/hasehh/jellyfin-timestamp-generator:v1.0.0`. Make sure to provide the `JF_ADDRESS` and `JF_API_KEY` environment variables.
 
 ## Start interactive Development Environment
 
